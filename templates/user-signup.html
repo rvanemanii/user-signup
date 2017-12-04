@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        <h1>Signup</h1>
+        <form method = 'post'>
+            <label>
+                Username
+                <input type='text' class='name' name='username' value = "{{ request.form['username'] }}" />
+            </label>
+            {% if username_error %}
+            <label class = "error">{{ username_error }}</label>
+            {% endif %}<br />
+
+            <label>
+                Password
+                <input type='password' name='password' class='pass' />
+            </label>
+            {% if password_error %}
+            <label class = "error">{{ password_error }}</label>
+            {% endif %}<br />
+
+            <label>
+                Verify Password
+                <input type='password' name='verify' />
+            </label>
+            {% if verify_error %}
+            <label class = "error">{{ verify_error }}</label>
+            {% endif %}<br />
+
+            <label>
+                Email (optional)
+                <input type='text' name='email' value = "{{ request.form['email'] }}"/>
+            </label>
+            {% if email_error %}
+            <label class = "error">{{ email_error }}</label>
+            {% endif %}<br />
+
+            <input type='submit' value='Submit Query' />
+        </form>
+
+        
+{% endblock %}
